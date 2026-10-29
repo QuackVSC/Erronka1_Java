@@ -7,8 +7,8 @@ public class Kontrolagailua {
 	public Kontrolagailua() throws Exception {
 		try {
 			run();
-		} catch (Exception e) {
-			Kontsola.inprimatu(e.toString());
+		} catch (Exception arazoa) {
+			Kontsola.inprimatu(arazoa.toString());
 		}
 	}
 
@@ -23,27 +23,27 @@ public class Kontrolagailua {
 				aukera = Teklatua.irakurri();
 
 				if (aukera.equals("1")) {
-					new businessLogic.LangileakKudeaketa().langileaIrakurri();
+					new businessLogic.BuruzagiakKudeaketa().BuruzagiaIrakurri();
 				}
 				if (aukera.equals("2")) {
-
+					new businessLogic.LangileakKudeaketa().langileaIrakurri();
 				}
 				if (aukera.equals("3")) {
-
+					new businessLogic.BezeroakKudeaketa().bezeroaIrakurri();
 				}
 				if (aukera.equals("4")) {
-
+					new businessLogic.EskariakKudeaketa().eskariaIrakurri();
 				}
 				if (aukera.equals("5")) {
-
+					break;
 				}
-				if(aukera.equals("6")) {
+				if (aukera.equals("6")) {
 					Menu.menuInprimaketa();
 				}
 			}
 
-		} catch (Exception e) {
-			Kontsola.inprimatu(e.toString());
+		} catch (Exception arazoa) {
+			Kontsola.inprimatu(arazoa.toString());
 		}
 	}
 
