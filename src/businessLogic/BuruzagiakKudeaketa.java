@@ -35,7 +35,7 @@ public class BuruzagiakKudeaketa {
 						Buruzagiak buruzagiak = kapsulatuDatuak(tokenak);
 						zerrenda.add(buruzagiak);
 						Kontsola.inprimatu(buruzagiak);
-						
+						aurkitua=true;
 					}
 				}
 

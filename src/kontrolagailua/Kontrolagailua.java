@@ -32,7 +32,7 @@ public class Kontrolagailua {
 					new businessLogic.BezeroakKudeaketa().bezeroaIrakurri();
 				}
 				if (aukera.equals("4")) {
-					new businessLogic.EskariakKudeaketa().eskariaIrakurri();
+					new businessLogic.EskariakKudeaketa().eskariLerroakIrakurri();
 				}
 				if (aukera.equals("5")) {
 					break;

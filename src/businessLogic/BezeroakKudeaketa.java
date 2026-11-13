@@ -39,8 +39,8 @@ public class BezeroakKudeaketa {
 						Bezeroak bezeroak = kapsulatuDatuak(tokenak);
 						
 					
-						String tel = telefonoaLortu(bezeroak.getID());
-						bezeroak.setTelefonoa(tel);
+						String telefonoa = telefonoaLortu(bezeroak.getID());
+						bezeroak.setTelefonoa(telefonoa);
 					
 
 						zerrenda.add(bezeroak);
@@ -63,8 +63,8 @@ public class BezeroakKudeaketa {
 	}
 
 
-	private String telefonoaLortu(String ID) {
-		String telefonoa="";
+	private String telefonoaLortu(String idBezeroTelefonoa) throws Exception{
+		String telefonoa=null;
 		try {
 			FileReader irakurriTelFitxategia = new FileReader("./src/eredua/fitxategia/BEZERO_TELEFONOAK.txt");
 			BufferedReader irakurriZatiHandiaTel = new BufferedReader(irakurriTelFitxategia);
@@ -77,7 +77,7 @@ public class BezeroakKudeaketa {
 				String[] tokenak = lerroa.split("\t");
 
 				
-				if (ID.equals(tokenak[1])) {
+				if (idBezeroTelefonoa.equals(tokenak[1])) {
 					telefonoa = tokenak[2];
 					break;
 				}

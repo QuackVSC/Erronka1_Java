@@ -6,6 +6,7 @@ public class Eskariak {
 	private String produktua;
 	private Integer kopurua;
 	private Double prezioa;
+	private String data;
 
 	public String getZenbakia() {
 		return zenbakia;
@@ -39,13 +40,22 @@ public class Eskariak {
 		this.prezioa = prezioa;
 	}
 
+	public String getData() {
+		return data;
+	}
+
+	public void setData(String data) {
+		this.data = data;
+	}
+
 	public String toString() {
 
 		Double prezioTotala = kopurua * prezioa;
-		
-		String prezioTotalaZuzena=String.valueOf(prezioTotala).replace(",", ".");
-		
-		return zenbakia + " - " + produktua + " - " + kopurua + " - " + prezioa +" - " +String.format("%.2f", prezioTotalaZuzena);
+
+		String prezioTotalaZuzena = String.format("%.2f", prezioTotala).replace(",", ".");
+
+		return zenbakia + " - " + produktua + " - " + kopurua + " - " + prezioa + " - " + prezioTotalaZuzena + " - "
+				+ data;
 
 	}
 

@@ -15,8 +15,4 @@ public class Teklatua { /*Aquí se crea un código que sirve para leer siempre l
 	public static String irakurri(FileReader fr) {
 		return sc.nextLine();
 	}
-	
-	public static Integer irakurriZenbakia() {
-		return sc.nextInt();
-	}
 }

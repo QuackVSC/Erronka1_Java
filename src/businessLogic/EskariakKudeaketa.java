@@ -11,7 +11,7 @@ public class EskariakKudeaketa {
 
 	private List<Eskariak> zerrenda;
 
-	public List<Eskariak> eskariaIrakurri() throws Exception {
+	public List<Eskariak> eskariLerroakIrakurri() throws Exception {
 
 		zerrenda = new ArrayList<Eskariak>();
 		String idEskaria;
@@ -22,26 +22,30 @@ public class EskariakKudeaketa {
 			idEskaria = Teklatua.irakurri();
 
 			try {
-				FileReader irakurriEskariakFitxategia = new FileReader("./src/eredua/fitxategia/ESKARI_LERROAK.txt");
-				BufferedReader irakurriZatiHandiaEskariak = new BufferedReader(irakurriEskariakFitxategia);
+				FileReader irakurriEskariLerroakFitxategia = new FileReader("./src/eredua/fitxategia/ESKARI_LERROAK.txt");
+				BufferedReader irakurriZatiHandiaEskariLerroak = new BufferedReader(irakurriEskariLerroakFitxategia);
 
-				irakurriZatiHandiaEskariak.readLine();
+				irakurriZatiHandiaEskariLerroak.readLine();
 
 				String lerroa;
 
-				while ((lerroa = irakurriZatiHandiaEskariak.readLine()) != null) {
+				while ((lerroa = irakurriZatiHandiaEskariLerroak.readLine()) != null) {
 
 					String[] tokenak = lerroa.split("\t");
 
 					if (idEskaria.equals(tokenak[0])) {
 						Eskariak eskariak = kapsulatuDatuak(tokenak);
+						
+						String data = eskariakIrakurri(eskariak.getZenbakia());
+						eskariak.setData(data);
+						
 						zerrenda.add(eskariak);
 						Kontsola.inprimatu(eskariak);
 						aurkitua = true;
 					}
 				}
-				irakurriZatiHandiaEskariak.close();
-				irakurriEskariakFitxategia.close();
+				irakurriZatiHandiaEskariLerroak.close();
+				irakurriEskariLerroakFitxategia.close();
 
 			} catch (Exception arazoa) {
 				Kontsola.inprimatu(arazoa.toString());
@@ -52,6 +56,36 @@ public class EskariakKudeaketa {
 			}
 		} while (!aurkitua);
 		return zerrenda;
+	}
+	
+	public String eskariakIrakurri(String idEskaria) throws Exception{
+		
+		zerrenda = new ArrayList<Eskariak>();
+		String data=null;
+			try {
+				FileReader irakurriEskariakFitxategia = new FileReader("./src/eredua/fitxategia/ESKARIAK.txt");
+				BufferedReader irakurriZatiHandiaEskariak = new BufferedReader(irakurriEskariakFitxategia);
+
+				irakurriZatiHandiaEskariak.readLine();
+
+				String lerroa;
+
+				while ((lerroa = irakurriZatiHandiaEskariak.readLine()) != null) {
+
+					String[] tokenak = lerroa.split("\t");
+
+					if (idEskaria.equals(tokenak[1])) {
+						data=tokenak[3];
+						break;
+					}
+				}
+				irakurriZatiHandiaEskariak.close();
+				irakurriEskariakFitxategia.close();
+
+			} catch (Exception arazoa) {
+				Kontsola.inprimatu(arazoa.toString());
+			}
+		return data;
 	}
 
 	private Eskariak kapsulatuDatuak(String[] tokenak) {
