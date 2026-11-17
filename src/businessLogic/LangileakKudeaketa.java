@@ -19,7 +19,7 @@ public class LangileakKudeaketa {
 
 		do {
 			// Pedimos todo en un solo texto
-			Kontsola.inprimatu("Sartu langilearen izen-abizenak:");
+			Kontsola.inprimatu("Sartu langilearen izen-abizenak edo ID-a:");
 			izenAbizena = Teklatua.irakurri().trim();
 
 			try {
@@ -38,7 +38,8 @@ public class LangileakKudeaketa {
 					// Unimos nombre y apellido del archivo para comparar con el texto introducido
 					String fitxategikoIzena = tokenak[1] + " " + tokenak[2];
 
-					if (izenAbizena.equalsIgnoreCase(fitxategikoIzena)) {
+					if (izenAbizena.equalsIgnoreCase(fitxategikoIzena) || izenAbizena.equalsIgnoreCase(tokenak[1])
+							|| izenAbizena.equalsIgnoreCase(tokenak[2])||izenAbizena.equals(tokenak[0])) {
 						Langileak langileak = kapsulatuDatuak(tokenak);
 						zerrenda.add(langileak);
 						Kontsola.inprimatu(langileak);
@@ -67,6 +68,7 @@ public class LangileakKudeaketa {
 
 		Langileak langileak = new Langileak();
 
+		langileak.setID(tokenak[0]);
 		langileak.setIzena(tokenak[1]);
 		langileak.setAbizena(tokenak[2]);
 		langileak.setTelZenbakia(tokenak[4]);

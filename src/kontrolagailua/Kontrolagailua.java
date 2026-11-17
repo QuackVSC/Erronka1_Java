@@ -1,6 +1,7 @@
 package kontrolagailua;
 
 import ikuspegia.*;
+import logotipoa.*;
 
 public class Kontrolagailua {
 
@@ -15,15 +16,24 @@ public class Kontrolagailua {
 	private void run() throws Exception {
 
 		try {
+
+			Logotipoa.run();
+
 			String aukera = "";
 
 			Menu.menuInprimaketa();
 			while (!aukera.equals("7")) {
-				Kontsola.inprimatu("Aukera idatzi");
+				Kontsola.inprimatu("Aukera idatzi: ");
 				aukera = Teklatua.irakurri();
 
 				if (aukera.equals("1")) {
-					new businessLogic.BuruzagiakKudeaketa().BuruzagiaIrakurri();
+					while (!aukera.equals("2"))
+						Kontsola.inprimatu("Zer egin nahi duzu?");
+					aukera=Teklatua.irakurri();
+					Kontsola.inprimatu("1. buruzagi baten langileen zerrenda kudeatu \n 2. Irten");
+					if (aukera.equals("1")) {
+						new businessLogic.BuruzagiakKudeaketa().BuruzagiaIrakurri();
+					}
 				}
 				if (aukera.equals("2")) {
 					new businessLogic.LangileakKudeaketa().langileaIrakurri();
@@ -35,10 +45,8 @@ public class Kontrolagailua {
 					new businessLogic.EskariakKudeaketa().eskariLerroakIrakurri();
 				}
 				if (aukera.equals("5")) {
+					Kontsola.inprimatu("HURRENGORA ARTE!");
 					break;
-				}
-				if (aukera.equals("6")) {
-					Menu.menuInprimaketa();
 				}
 			}
 
@@ -48,6 +56,7 @@ public class Kontrolagailua {
 	}
 
 	public static void main(String[] args) throws Exception {
+
 		new Kontrolagailua();
 	}
 

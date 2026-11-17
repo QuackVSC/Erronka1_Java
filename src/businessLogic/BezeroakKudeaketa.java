@@ -18,7 +18,7 @@ public class BezeroakKudeaketa {
 		boolean aurkitua = false;
 
 		do {
-			Kontsola.inprimatu("Sartu bezeroaren izen-abizenak:");
+			Kontsola.inprimatu("Sartu bezeroaren izen-abizenak edo ID-a:");
 			izenAbizena = Teklatua.irakurri().trim();
 
 			try {
@@ -35,13 +35,12 @@ public class BezeroakKudeaketa {
 
 					String fitxategikoIzena = tokenak[1] + " " + tokenak[2];
 
-					if (izenAbizena.equalsIgnoreCase(fitxategikoIzena)) {
+					if (izenAbizena.equalsIgnoreCase(fitxategikoIzena) || izenAbizena.equalsIgnoreCase(tokenak[1])
+							|| izenAbizena.equalsIgnoreCase(tokenak[2])||izenAbizena.equals(tokenak[0])) {
 						Bezeroak bezeroak = kapsulatuDatuak(tokenak);
-						
-					
+
 						String telefonoa = telefonoaLortu(bezeroak.getID());
 						bezeroak.setTelefonoa(telefonoa);
-					
 
 						zerrenda.add(bezeroak);
 						Kontsola.inprimatu(bezeroak);
@@ -62,9 +61,8 @@ public class BezeroakKudeaketa {
 		return zerrenda;
 	}
 
-
-	private String telefonoaLortu(String idBezeroTelefonoa) throws Exception{
-		String telefonoa=null;
+	private String telefonoaLortu(String idBezeroTelefonoa) throws Exception {
+		String telefonoa = null;
 		try {
 			FileReader irakurriTelFitxategia = new FileReader("./src/eredua/fitxategia/BEZERO_TELEFONOAK.txt");
 			BufferedReader irakurriZatiHandiaTel = new BufferedReader(irakurriTelFitxategia);
@@ -76,7 +74,6 @@ public class BezeroakKudeaketa {
 			while ((lerroa = irakurriZatiHandiaTel.readLine()) != null) {
 				String[] tokenak = lerroa.split("\t");
 
-				
 				if (idBezeroTelefonoa.equals(tokenak[1])) {
 					telefonoa = tokenak[2];
 					break;

@@ -2,11 +2,20 @@ package eredua;
 
 public class Langileak {
 
+	private String ID;
 	private String izena;
 	private String abizena;
 	private String altaEguna;
 	private String telZenbakia;
-	
+
+	public String getID() {
+		return ID;
+	}
+
+	public void setID(String ID) {
+		this.ID = ID;
+	}
+
 	public String getIzena() {
 		return izena;
 	}
@@ -22,7 +31,7 @@ public class Langileak {
 	public void setAbizena(String abizena) {
 		this.abizena = abizena;
 	}
-	
+
 	public String getAltaEguna() {
 		return altaEguna;
 	}
@@ -38,7 +47,7 @@ public class Langileak {
 	public void setTelZenbakia(String telZenbakia) {
 		this.telZenbakia = telZenbakia;
 	}
-	
+
 	public String toString() {
 		return izena + " - " + abizena + " - " + telZenbakia + " - " + altaEguna;
 	}
