@@ -1,4 +1,6 @@
 package logotipoa;
+import ikuspegia.*;
+
 public class Logotipoa {
 	private static Integer Altuera = 4; 
 	public Logotipoa() {
@@ -18,27 +20,27 @@ public class Logotipoa {
 												// zenbakiaren arabera
 			for (Integer m = 0; m < n + 1; ++m)
 				// Espazioak jartzen ditu
-				System.out.print(" ");
+				Kontsola.inprimatuLerroa(" ");
 			for (Integer k = Altuera * 2 - 1; k >= (2 * n + 1); k--) {
 				// (2* n - 1) piramideak modu simetrikoan sor ditzan jartzen ditu asterikoak,
 				// adibidean agertzen den 1,3,5,7 ordenaren arabera.
-				System.out.print("*");
+				Kontsola.inprimatuLerroa("*");
 			}
 			System.out.println();// Markatu lerroaren amaiera hurrengora pasatzeko
 		}
 	}
 	private static void piramide2() {
 		// Lehenengoaren berdina da, baina logika alderantzikatuz,
-		// espazio askorekin eta gutxi batzuekin * enpizatzen du, baina erreb.
+		// espazio askorekin eta gutxi batzuekin * hasten du, baina erreb.
 		// termiatzen dute
 
 		for (Integer n = 0; n < Altuera; ++n) {
 			for (Integer m = 0; m < Altuera - n; ++m)
-				System.out.print(" ");
+				Kontsola.inprimatuLerroa(" ");
 			for (Integer k = -1; k <= (2 * n - 1); k++) {
-				System.out.print("*");
+				Kontsola.inprimatuLerroa("*");
 			}
-			System.out.println();
+		Kontsola.inprimatu("");
 		}
 	}
 	private static void piramide3() {
@@ -52,23 +54,23 @@ public class Logotipoa {
 		// altua amaitzean, zoru bat jartzen da
 		for (Integer n = 0; n < Altuera + 1; ++n) {
 			for (Integer m = 0; m < Altuera - n; ++m)
-				System.out.print(" ");
+				Kontsola.inprimatuLerroa(" ");
 			if (n >= 1) {
 				for (Integer p = 0; p < 1; ++p)
-					System.out.print("*");
+				Kontsola.inprimatuLerroa("*");
 			}
 			if (n >= Altuera) {
-				System.out.print("*".repeat(Altuera * 2 - 1));
+				Kontsola.inprimatuLerroa(("*".repeat(Altuera * 2 - 1)));
 				// Azalpena: 3. eta 4. pirmaide horiek lurrean dauden beste guztiak baino lerro
 				// bat altuagoak dira,
 				// eta adibidean 4. piramidea beste guztiak bezain altua da, baina Andonik esan
 				// zidan ondo dagoela.
 			} else {
 				for (Integer k = 0; k <= (2 * n - 2); k++) {
-					System.out.print(" ");
+					Kontsola.inprimatuLerroa(" ");
 				}
 			}
-			System.out.println("*");
+			Kontsola.inprimatu("*");
 		}
 	}
 	private static void piramide4() {
@@ -79,27 +81,27 @@ public class Logotipoa {
 		for (Integer n = 0; n < Altuera + 1; ++n) {
 
 			if (n >= Altuera) {
-				System.out.print("*".repeat(Altuera * 2));
+				Kontsola.inprimatuLerroa(("*".repeat(Altuera * 2)));
 			} else {
 				for (Integer m = Altuera + n - 1; m >= n; --m)
-					System.out.print(" ");
+					Kontsola.inprimatuLerroa(" ");
 			}
-			System.out.println("*");
+			Kontsola.inprimatu("*");
 		}
 	}
 	private static void piramide5() {
 		// da 3 primidea soru barik
 		for (Integer n = 0; n < Altuera; ++n) {
 			for (Integer m = 0; m < Altuera - n; ++m)
-				System.out.print(" ");
+			Kontsola.inprimatuLerroa(" ");
 			if (n >= 1) {
 				for (Integer p = 0; p < 1; ++p)
-					System.out.print("*");
+					Kontsola.inprimatuLerroa("*");
 			}
 			for (Integer k = 0; k <= (2 * n - 2); k++) {
-				System.out.print(" ");
+				Kontsola.inprimatuLerroa(" ");
 			}
-			System.out.println("*");
+			Kontsola.inprimatu("*");
 		}
 	}
 }

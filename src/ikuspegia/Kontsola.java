@@ -20,4 +20,7 @@ public class Kontsola { /*Aquí se cea un código que cuando se haga uso de él 
 	public static void inprimatu(Object objektua){
 		IO.println(objektua.toString());
 	}
+	public static void inprimatuLerroa(Object objektua) {
+		IO.print(objektua.toString());
+	}
 }
