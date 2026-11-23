@@ -1,5 +1,4 @@
-package logotipoa;
-import ikuspegia.*;
+package ikuspegia;
 
 public class Logotipoa {
 	private static Integer Altuera = 4; 

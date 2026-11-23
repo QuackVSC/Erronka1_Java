@@ -3,7 +3,6 @@ package kontrolagailua;
 // Behar ditugun klaseak inportatu
 import businessLogic.*;
 import ikuspegia.*;
-import logotipoa.*;
 
 public class Kontrolagailua {
 
